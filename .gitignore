@@ -1,0 +1,13 @@
+# Python-specific (if your Zero Stroke project will be in Python)
+__pycache__/
+*.pyc
+*.pyo
+.mypy_cache/
+.pytest_cache/
+.coverage
+*.log  # You can include this if you decide not to track keystrokes.log long-term
+
+# System files
+*.swp
+*.swo
+.DS_Store # For macOS users
