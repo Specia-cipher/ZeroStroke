@@ -1,138 +1,119 @@
 🛡️ Zero Stroke - Keylogger Analysis & Countermeasure
 
-**Table of Contents**
+**SANNI-BABATUNDE-IDRIS  sannifreelancer6779@gmail.com  @Linkedin  https://www.linkedin.com/in/sanni-idris-89917a262?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app**
+
+A project focused on understanding keylogger operation, starting with practical simulation using a third-party tool, followed by the development of a custom keylogger (StrokeCap) and a countermeasure (Zero Stroke).
+
+**📑 Table of Contents**
+
 * [Overview](#overview)
+* [Initial Keylogger Simulation](#initial-keylogger-simulation)
+* [StrokeCap v2.0](#strokecap-v20)
+* [Zero Stroke](#zero-stroke)
 * [🔥 Key Features](#key-features)
-* [🚀 Quick Start](#quick-start)
-* [🛠️ Roadmap](#roadmap)
-* [⚙️ Usage](#usage)
-* [📝 Sample Log Output](#sample-log-output)
-* [🧰 Tools](#tools)
-* [👨‍💻 About the Author](#about-the-author)
+* [🛠️ Project Stages](#project-stages)
+* [🧰 Tools Used](#tools-used)
+* [Next Plan](#next-plan)
 * [📜 License](#license)
 * [⚠️ Disclaimer](#disclaimer)
 
+---
+
 ## Overview <a name="overview"></a>
 
-This project started with a tactical deep dive into keyloggers through simulation and the strategic engineering of a custom keylogger, StrokeCap v2.0. The primary objective has now shifted towards building "Zero stroke," a robust countermeasure tool designed to detect and potentially mitigate keylogging activities. This lab serves as an offensive and defensive security-oriented exploration.
+This project documents a comprehensive exploration into keylogger technology, encompassing initial simulation and analysis, the development of custom tools for offensive and defensive security learning, and future plans for enhancement and deployment.
 
-## 🔥 Key Features <a name="key-features"></a>
+---
 
-* **Hands-on Keylogger Simulation:** Conducted a practical simulation using an external Python keylogger to gain a foundational understanding of keylogging techniques.
-* **Custom Keylogger Development (StrokeCap v2.0):** Engineered a Python-based keylogger (StrokeCap v2.0) with advanced features including comprehensive JSON logging and basic parsing.
-* **JSON Logging:** Utilizes a structured JSON format for log entries, facilitating easy data parsing and potential future analysis.
-* **Basic JSON Parsing:** Implements a basic parsing mechanism to read the `stroke_cap_log.txt` file and display the captured keystrokes.
-* **Zero stroke Countermeasure (Planned):** Development of a tool to identify keylogging activities through various methods:
-    * Detecting known keylogger file names and types.
-    * Monitoring for suspicious file creation and modification.
-    * Analyzing running processes for known keylogger names and suspicious behavior.
-    * Detection of processes hooking keyboard or mouse events.
-    * (Future) Registry analysis and network activity monitoring.
-* **Alert Mechanism:** "Zero stroke" will feature a hybrid alert system, providing pop-up notifications for immediate user awareness and detailed logging to a separate file.
-* Modular Design: The project is designed with a modular approach to enable the integration of diverse detection and response strategies for "Zero stroke."
-* Cross-Platform Exploration: Primarily developed and tested on a Linux environment (Backbox VM), with consideration for future adaptation to Android (Termux/UserLAnd).
+## Initial Keylogger Simulation <a name="initial-keylogger-simulation"></a>
 
-## 🚀 Quick Start <a name="quick-start"></a>
+The project commenced with a hands-on simulation of a keylogger attack using an existing Python-based tool (`python-keylogger`). This crucial first step provided practical insights into how keyloggers operate, including their logging mechanisms and potential vulnerabilities. The analysis of the simulated keylogger's behavior informed the subsequent development of the custom tools.
 
-1.  Gained initial experience by simulating a keylogger attack using an existing tool.
-2.  Successfully developed StrokeCap v2.0, a custom keylogger with JSON logging and basic parsing capabilities.
-3.  The subsequent step is to commence the development of "Zero stroke," the keylogger countermeasure.
+---
 
-## 🛠️ Roadmap <a name="roadmap"></a>
+## StrokeCap v2.0 <a name="strokecap-v20"></a>
 
-**Phase 1: Keylogger Simulation & Insight Gathering (Computer)**
-* **Goal:** To acquire practical knowledge of keylogger behavior through direct simulation.
-* **Tasks:** Utilize an external keylogger to simulate and analyze keystroke capture.
+A custom Python-based keylogger engineered to capture keystrokes and log them in JSON format, including timestamps, special key descriptions, and platform detection. It also includes basic parsing to display captured keystrokes after logging.
 
-**Phase 2: Custom Keylogger Engineering (StrokeCap v2.0) (Computer/Phone)**
-* **Goal:** To build a feature-rich keylogger for in-depth understanding of its mechanisms.
-* **Tasks:** Develop StrokeCap v1.0, v1.1, and v2.0 with comprehensive JSON logging and basic parsing.
-
-**Phase 3: Countermeasure Development ("Zero stroke") - Core Detection (Computer/Phone)**
-* **Goal:** To build the initial detection capabilities of "Zero stroke."
-* **Tasks:** Implement file system analysis (detecting `stroke_cap_log.txt`, known file types, suspicious creation), and basic process monitoring (detecting Python processes). Integrate a basic alert mechanism (console print).
-
-**Phase 4: Expanding Zero stroke Detection (Computer/Phone)**
-* **Goal:** To enhance the detection capabilities of "Zero stroke."
-* **Tasks:** Implement more advanced process monitoring (hooking detection), and potentially begin exploring registry analysis (Windows) and network activity monitoring.
-
-**Phase 5: Alert System Enhancement and Containerization (Computer/Phone)**
-* **Goal:** To refine the alert system and containerize "Zero stroke" with Docker.
-* **Tasks:** Implement pop-up notifications and separate log file writing for alerts. Create a Dockerfile for "Zero stroke."
-
-**Phase 6: Porting and Cross-Platform Adaptation (Phone)**
-* **Goal:** To adapt and test "Zero stroke" on mobile environments.
-* **Tasks:** Port the codebase to Android (Termux/UserLAnd), optimize for mobile, conduct thorough testing.
-
-**Phase 7: Enhancement and Refinement (Phone/Computer)**
-* **Goal:** To improve the effectiveness and robustness of "Zero stroke."
-* **Tasks:** Implement advanced detection methods, enhance response capabilities, conduct extensive testing and debugging.
-
-**Phase 8: Documentation and Finalization (Phone/Computer)**
-* **Goal:** To complete comprehensive documentation for the entire project.
-* **Tasks:** Write detailed README, provide code comments, finalize project documentation.
-
-## ⚙️ Usage <a name="usage"></a>
-
-To run the StrokeCap v2.0 keylogger, navigate to the directory where you have saved the `StrokeCap.py` file in your terminal and execute the following command:
+**Usage:**
 
 ```bash
+# Navigate to the directory containing StrokeCap.py
+cd ZeroStroke/
+# Run the keylogger
 python3 StrokeCap.py
-The script will start logging keystrokes in JSON format to a file named stroke_cap_log.txt in the same directory. After you press the ESC key to stop the logging, the script will then attempt to parse the log file and display the captured keystrokes in the terminal.
+Press ESC in the terminal where StrokeCap is running to stop the logging. Captured keystrokes will be saved in a file named stroke_cap_log.txt in the same directory, and a basic parsed output will be displayed in the terminal.
 
-📝 Sample Log Output
-Platform Information (Appears at the beginning of stroke_cap_log.txt and in the console):
+Author: Sanni Idris (Specia-cipher)
 
-StrokeCap v2.0 logging started on: Linux
-Sample JSON Log Entries in stroke_cap_log.txt:
+Zero Stroke
+A basic Python-based countermeasure tool designed to detect potential keylogging activity by analyzing file systems and running processes for indicators associated with keyloggers, including StrokeCap. It provides alerts via console output and structured JSON logging to a file named zero_stroke_alerts.log.
 
-JSON
+Usage:
 
-{"event_type": "PRESS", "timestamp": "2025-07-14 12:56:14.872897", "key": "'i'"}
-{"event_type": "RELEASE", "timestamp": "2025-07-14 12:56:14.946059", "key": "'i'"}
-{"event_type": "PRESS", "timestamp": "2025-07-14 12:56:15.391241", "key": "[SPACE]"}
-{"event_type": "RELEASE", "timestamp": "2025-07-14 12:56:15.478748", "key": "[SPACE]"}
-{"event_type": "PRESS", "timestamp": "2025-07-14 12:56:19.738519", "key": "[ENTER]"}
-{"event_type": "RELEASE", "timestamp": "2025-07-14 12:56:19.812195", "key": "[ENTER]"}
-{"event_type": "PRESS", "timestamp": "2025-07-14 12:56:24.495657", "key": "[ESC]"}
-{"event_type": "RELEASE", "timestamp": "2025-07-14 12:56:24.619442", "key": "[ESC]"}
-Sample Parsed Keystrokes Output (Displayed in the terminal after stopping logging):
+Bash
 
---- Parsed Keystrokes ---
-i b a a t u n d e   i d r i s [ENTER]
-🧰 Tools
+# Navigate to the directory containing ZeroStroke.py
+cd ZeroStroke/
+# Run the countermeasure tool
+python3 ZeroStroke.py
+Zero Stroke will scan for suspicious activity and output alerts to the console. Details of the alerts will also be logged in JSON format to zero_stroke_alerts.log in the same directory.
+
+Author: Sanni Idris (Specia-cipher)
+
+🔥 Key Features
+Hands-on Keylogger Attack Simulation (Completed)
+
+Custom Keylogger (StrokeCap v2.0) with JSON Logging and Parsing
+
+Keylogger Detection Tool (Zero Stroke) with:
+
+Known Keylogger File Detection
+
+Suspicious Log File Detection (including StrokeCap's log)
+
+Running StrokeCap Process Detection
+
+Hybrid Alert System (Zero Stroke) with Console Output and JSON Log File
+
+🛠️ Project Stages
+Completed:
+
+Phase 1: Initial Keylogger Simulation & Insight Gathering
+
+Phase 2: Custom Keylogger Engineering (StrokeCap v2.0)
+
+Phase 3: Countermeasure Development ("Zero stroke") - Core Detection
+
+Next:
+
+Phase 4: Alert System Enhancement and Containerization (Focus on Docker for both tools)
+
+🧰 Tools Used
 Virtualization Software (VirtualBox, VMware)
 
 Backbox Linux VM
 
-Existing Python-based Keylogger
+Existing Python-based Keylogger (python-keylogger)
 
 Python Programming Language
 
-pynput library
+pynput library (for StrokeCap)
 
-datetime module
+datetime module (for both)
 
-platform module
+platform module (for StrokeCap)
 
-json module
+json module (for both)
 
-Development Environment (VS Code, Sublime Text)
+subprocess module (for Zero Stroke)
 
-Git
-
-Termux or Kali via UserLAnd (on Android)
-
-Text Editor (on phone)
-
-👨‍💻 About the Author
-🔖 Built with ❤️ by Sanni Idris
-GitHub: github.com/Specia-cipher/defenseops-lab
-LinkedIn: linkedin.com/in/sanni-idris-89917a262
-📧 Gmail: sannifreelancer6779@gmail.com
+Next Plan
+The immediate next step is to focus on containerizing both the StrokeCap and Zero Stroke tools using Docker.
 
 📜 License
 MIT License
 
 ⚠️ Disclaimer
-This keylogger (StrokeCap) is intended for educational and ethical testing purposes only within a controlled environment. Use of this tool for any malicious or unauthorized activity is strictly prohibited and may be illegal. The author(s) are not responsible for any misuse of this software
+This project is intended for educational and ethical testing purposes only. Use of these tools for any malicious or unauthorized activity is strictly prohibited. The author(s) are not responsible for any misuse of this software.
+

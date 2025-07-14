@@ -1,0 +1,4 @@
+{"timestamp": "2025-07-14T14:09:32.751610", "alert_message": "Potential keylogger log file detected: stroke_cap_log.txt"}
+{"timestamp": "2025-07-14T14:09:32.826233", "alert_message": "Potential keylogger (StrokeCap) process running: gen-cip+    7965  0.1  0.4 101424 18704 pts/1    Sl+  13:50   0:01 python3 StrokeCap.py"}
+{"timestamp": "2025-07-14T14:13:15.086494", "alert_message": "Potential keylogger log file detected: stroke_cap_log.txt"}
+{"timestamp": "2025-07-14T14:13:15.174490", "alert_message": "Potential keylogger (StrokeCap) process running: gen-cip+    7965  0.1  0.4 101424 18704 pts/1    Sl+  13:50   0:01 python3 StrokeCap.py"}
