@@ -1,119 +1,188 @@
-🛡️ Zero Stroke - Keylogger Analysis & Countermeasure
+# 🛡️ ZeroStroke - Keylogger Analysis & Countermeasure
 
-**SANNI-BABATUNDE-IDRIS  sannifreelancer6779@gmail.com  @Linkedin  https://www.linkedin.com/in/sanni-idris-89917a262?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app**
+![MIT License](https://img.shields.io/badge/license-MIT-blue)
+![Python](https://img.shields.io/badge/python-3.9%2B-blue)
+![Containerized](https://img.shields.io/badge/containerized-Podman-green)
 
-A project focused on understanding keylogger operation, starting with practical simulation using a third-party tool, followed by the development of a custom keylogger (StrokeCap) and a countermeasure (Zero Stroke).
-
-**📑 Table of Contents**
-
-* [Overview](#overview)
-* [Initial Keylogger Simulation](#initial-keylogger-simulation)
-* [StrokeCap v2.0](#strokecap-v20)
-* [Zero Stroke](#zero-stroke)
-* [🔥 Key Features](#key-features)
-* [🛠️ Project Stages](#project-stages)
-* [🧰 Tools Used](#tools-used)
-* [Next Plan](#next-plan)
-* [📜 License](#license)
-* [⚠️ Disclaimer](#disclaimer)
+**Author:** Sanni Babatunde Idris – [LinkedIn](https://www.linkedin.com/in/sanni-idris-89917a262?utmsource=share&utmcampaign=sharevia&utmcontent=profile&utmmedium=androidapp)  
+📧 sannifreelancer6779@gmail.com  
 
 ---
 
-## Overview <a name="overview"></a>
+## 📑 Table of Contents
 
-This project documents a comprehensive exploration into keylogger technology, encompassing initial simulation and analysis, the development of custom tools for offensive and defensive security learning, and future plans for enhancement and deployment.
+- [Overview](#overview)
+- [Initial Keylogger Simulation](#initial-keylogger-simulation)
+- [StrokeCap v2.0](#strokecap-v20)
+- [ZeroStroke](#zerostroke)
+- [Containerization (Podman)](#containerization)
+- [🔥 Key Features](#key-features)
+- [🛠️ Project Stages](#project-stages)
+- [🧰 Tools Used](#tools-used)
+- [Next Plan](#next-plan)
+- [📜 License](#license)
+- [⚠️ Disclaimer](#disclaimer)
 
 ---
 
-## Initial Keylogger Simulation <a name="initial-keylogger-simulation"></a>
+## 📖 Overview
 
-The project commenced with a hands-on simulation of a keylogger attack using an existing Python-based tool (`python-keylogger`). This crucial first step provided practical insights into how keyloggers operate, including their logging mechanisms and potential vulnerabilities. The analysis of the simulated keylogger's behavior informed the subsequent development of the custom tools.
+ZeroStroke is a Python-based keylogger detection tool born out of curiosity-driven research into offensive and defensive security. The project simulates keylogger behavior, develops custom offensive tooling (StrokeCap), and builds a defensive countermeasure (ZeroStroke).  
 
 ---
 
-## StrokeCap v2.0 <a name="strokecap-v20"></a>
+## 🧪 Initial Keylogger Simulation
 
-A custom Python-based keylogger engineered to capture keystrokes and log them in JSON format, including timestamps, special key descriptions, and platform detection. It also includes basic parsing to display captured keystrokes after logging.
+The journey started by cloning and testing an existing Python keylogger (*python-keylogger*). This step offered hands-on insights into:  
+
+- Keystroke capture techniques
+- Log file handling
+- Process behavior analysis
+
+These insights guided the engineering of custom tools.
+
+---
+
+## 🛠️ StrokeCap v2.0
+
+A Python-based keylogger that captures keystrokes with:  
+
+✅ JSON structured logging  
+✅ Timestamps and special key handling  
+✅ Platform detection  
 
 **Usage:**
-
 ```bash
-# Navigate to the directory containing StrokeCap.py
+# Navigate to StrokeCap directory
 cd ZeroStroke/
-# Run the keylogger
+
+# Run StrokeCap
 python3 StrokeCap.py
-Press ESC in the terminal where StrokeCap is running to stop the logging. Captured keystrokes will be saved in a file named stroke_cap_log.txt in the same directory, and a basic parsed output will be displayed in the terminal.
 
-Author: Sanni Idris (Specia-cipher)
+📝 Captured keystrokes are saved to strokecaplog.txt. Press ESC to stop logging.
 
-Zero Stroke
-A basic Python-based countermeasure tool designed to detect potential keylogging activity by analyzing file systems and running processes for indicators associated with keyloggers, including StrokeCap. It provides alerts via console output and structured JSON logging to a file named zero_stroke_alerts.log.
+
+---
+
+🛡️ ZeroStroke
+
+A countermeasure tool that scans for keylogging activity by detecting:
+
+Known keylogger files
+
+Suspicious logs (e.g., strokecaplog.txt)
+
+Active keylogger processes
+
 
 Usage:
 
-Bash
-
-# Navigate to the directory containing ZeroStroke.py
+# Navigate to ZeroStroke directory
 cd ZeroStroke/
-# Run the countermeasure tool
-python3 ZeroStroke.py
-Zero Stroke will scan for suspicious activity and output alerts to the console. Details of the alerts will also be logged in JSON format to zero_stroke_alerts.log in the same directory.
 
-Author: Sanni Idris (Specia-cipher)
+# Run ZeroStroke
+python3 ZeroStroke.py
+
+📦 Alerts are displayed in the console and logged to zerostrokealerts.log.
+
+
+---
+
+🐳 Containerization (Podman)
+
+✅ Why ZeroStroke Was Containerized
+
+ZeroStroke was containerized to ensure:
+
+Isolation from host systems
+
+Portability across environments
+
+Easy deployment in testing labs
+
+
+🛑 Why StrokeCap Wasn’t
+
+StrokeCap, as an offensive tool, remains uncontainerized to discourage casual or unintended use. This reflects a deliberate ethical stance in releasing potentially dangerous tooling.
+
+📦 Build & Run with Podman
+
+# Build ZeroStroke container
+podman build -t zerostroke .
+
+# Run container
+podman run --rm -it zerostroke
+
+📸 Screenshot Example
+(Replace this with your screenshot)
+
+
+
+---
 
 🔥 Key Features
-Hands-on Keylogger Attack Simulation (Completed)
 
-Custom Keylogger (StrokeCap v2.0) with JSON Logging and Parsing
+Hands-on keylogger simulation
 
-Keylogger Detection Tool (Zero Stroke) with:
+Custom keylogger engineering (StrokeCap)
 
-Known Keylogger File Detection
+Countermeasure with console + JSON logging
 
-Suspicious Log File Detection (including StrokeCap's log)
+Podman containerization for safe deployment
 
-Running StrokeCap Process Detection
 
-Hybrid Alert System (Zero Stroke) with Console Output and JSON Log File
 
-🛠️ Project Stages
-Completed:
+---
 
-Phase 1: Initial Keylogger Simulation & Insight Gathering
+🗺️ Project Stages
 
-Phase 2: Custom Keylogger Engineering (StrokeCap v2.0)
+Stage	Status
 
-Phase 3: Countermeasure Development ("Zero stroke") - Core Detection
+Initial Keylogger Simulation	✅ Completed
+StrokeCap v2.0 Development	✅ Completed
+ZeroStroke Core Detection	✅ Completed
+Podman Containerization	✅ Completed
+StrokeCap Containerization	🛑 Deferred
 
-Next:
 
-Phase 4: Alert System Enhancement and Containerization (Focus on Docker for both tools)
+
+---
 
 🧰 Tools Used
-Virtualization Software (VirtualBox, VMware)
 
-Backbox Linux VM
+Python 3
 
-Existing Python-based Keylogger (python-keylogger)
+pynput, subprocess, datetime, platform
 
-Python Programming Language
+Backbox Linux VM (sandboxed testing)
 
-pynput library (for StrokeCap)
+Podman (containerization on Termux)
 
-datetime module (for both)
+Termux for mobile lab operations
 
-platform module (for StrokeCap)
 
-json module (for both)
 
-subprocess module (for Zero Stroke)
+---
 
-Next Plan
-The immediate next step is to focus on containerizing both the StrokeCap and Zero Stroke tools using Docker.
+📌 Next Plan
+
+Extend ZeroStroke’s detection heuristics
+
+Build AttackOps-Lab for offensive simulations
+
+Integrate both labs (DefenseOps + AttackOps) for full-spectrum coverage
+
+
+
+---
 
 📜 License
+
 MIT License
 
-⚠️ Disclaimer
-This project is intended for educational and ethical testing purposes only. Use of these tools for any malicious or unauthorized activity is strictly prohibited. The author(s) are not responsible for any misuse of this software.
 
+---
+
+⚠️ Disclaimer
+
+This project is intended for educational purposes only. Misuse of these tools for unauthorized activity is strictly prohibited. The author assumes no responsibility for misuse.
